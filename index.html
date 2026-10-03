@@ -37,17 +37,15 @@
 
 -->
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
   <script src="js/oktype.js"></script>
   <script>
      $(document).ready(function(){
-          $('h1').oktype({
+          $('.hud a').oktype({
                    randomColor: true,
                    randomDecoration: true
                  });
@@ -60,23 +58,14 @@
 </head>
 
 <body>
-  <div class='wrapper'>
-    <div id="bg-image">
-
-    </div>
-    <div class="github"><a href="http://github.com/shuynh" target="_blank"><h1>github</h1></a></div>
-    <div class="instagram"><a href="http://instagram.com/YoungChipotle" target="_blank"><h1>instagram</h1></a></div>
-    <div class="twitter"><a href="http://twitter.com/YoungChipotle" target="_blank"><h1>twitter</h1></a></div>
-    <div class="access"> <a href="http://www.accessmaincomputerfile.net" target="_blank"><h1>accessmaincomputerfile</h1></a></div>
-    <div class="email"><a href="mailto:steven@urethrafranklin.org"><h1>email me!</h1></a> </div>
-</div>
-
-<script>
-  $(document).ready ( function(){
-   $('#bg-image').addClass('sliding');
-  });
-</script>
-
+  <img class="skier" src="img/skier.png" alt="">
+  <nav class="hud">
+    <a href="https://github.com/shuynh" target="_blank">github</a>
+    <a href="https://instagram.com/YoungChipotle" target="_blank">instagram</a>
+    <a href="https://twitter.com/YoungChipotle" target="_blank">twitter</a>
+    <a href="http://www.accessmaincomputerfile.net" target="_blank">accessmaincomputerfile</a>
+    <a href="mailto:steven.m.huynh@gmail.com">email me!</a>
+  </nav>
 </body>
 
 

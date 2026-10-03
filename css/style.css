@@ -1,95 +1,42 @@
-h1 {
-font-size:14px;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url('../img/skifree.png');
+  animation: ski 6s linear infinite;
 }
 
-.wrapper {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  clear:both;
+@keyframes ski {
+  to { background-position: 0 -1003px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+}
+
+.skier {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  margin-left: -7px;
+}
+
+/* mimics the in-game Time/Dist/Speed/Style box */
+.hud {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  width: 200px;
+  padding: 2px 6px;
+  background: #fff;
+  border: 1px solid #000;
+  font: 14px 'Courier New', monospace;
+}
+
+.hud a {
+  display: block;
+  height: 24px;
+  line-height: 24px;
   overflow: hidden;
-}
-
-#bg-image.sliding {
-  -webkit-animation-name: sliderdude;
-  -moz-animation-name: sliderdude;
-  -o-animation-name: sliderdude;
-  animation-name: sliderdude;
-
-  -webkit-animation-duration: 6s;
-  -moz-animation-duration: 6s;
-  -o-animation-duration: 6s;
-  animation-duration: 6s;
-
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-
-   -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function: linear;
-  -o-animation-timing-function: linear;
-  animation-timing-function: linear;
-}
-
-@-webkit-keyframes sliderdude {
-
- from {
-    margin-top:-1003px;
-  }
-
-  to {
-    margin-top: 0px;
-  }
-
-}
-@keyframes sliderdude {
-
- from {
-    margin-top:-1003px;
-  }
-
-  to {
-    margin-top: 0px;
-  }
-}
-
-#bg-image {
-  background: url('../img/skifree.png') repeat;
-  min-width: 200%;
-  min-height: 200%;
-  position:absolute;
-  margin-top: -1003px;
-}
-
-.github {
-  position:absolute;
-  left:390px;
-  top:310px
-}
-
-.instagram {
-  position:absolute;
-  left:538px;
-  top:150px
-}
-
-.twitter {
-  position:absolute;
-  left:104px;
-  top:252px;
-}
-
-.access {
-  position:absolute;
-  left:478px;
-  top:522px;
-}
-
-.email {
-  position:absolute;
-  left:866px;
-  top:310px;
+  white-space: nowrap;
+  color: #000;
 }
