@@ -9,10 +9,6 @@
 
 (function ($) {
     var 
-      timer,
-      self,
-      // An object for storing an element's style history
-      restore = {},
       // Array of CSS values for font-weight
       weights = '100 200 300 400 500 600 700 800 900'.split(' '),
       // Array of CSS values for text-decoration
@@ -36,6 +32,7 @@
     
     $.oktype = function (el, options) {
         var base = this;
+        var timer, self, restore = {};
         base.$el = $(el);
         base.el = el;
 
@@ -83,6 +80,7 @@
         //
         // Takes one argument, the element we are hovering on.
         base.hoverIn = function(el){
+            if (timer) return;
             // Cache jQuery object
             self = $(el);
 
@@ -124,6 +122,7 @@
 
             // Destroy the timeout
             clearTimeout(timer);
+            timer = null;
 
             // Remove the class
             if (base.options.hover) self.removeClass('oktype-hovering');
