@@ -57,16 +57,12 @@ $$$$$$$$$$$*T"~~~~ ~~~~!!!!!!!!!!!XMMMMMMMX!:!X!!!?$$$$$$$$$$$$$$
   <script src="js/oktype.js"></script>
   <script>
      $(document).ready(function(){
-          var $links = $('.hud a').oktype({
-                   randomColor: true,
-                   randomDecoration: true
-                 });
-          // touch screens never fire hover, so glitch a random link every 2s
-          if (window.matchMedia('(hover: none)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            setInterval(function(){
-              var $a = $links.eq(Math.floor(Math.random() * $links.length)).trigger('mouseenter');
-              setTimeout(function(){ $a.trigger('mouseleave'); }, 800);
-            }, 2000);
+          // taps fire emulated mouseenter, so only glitch on devices that really hover
+          if (window.matchMedia('(hover: hover)').matches) {
+            $('.hud a').oktype({
+                     randomColor: true,
+                     randomDecoration: true
+                   });
           }
       });
 
@@ -86,6 +82,23 @@ $$$$$$$$$$$*T"~~~~ ~~~~!!!!!!!!!!!XMMMMMMMX!:!X!!!?$$$$$$$$$$$$$$
     <a href="http://www.accessmaincomputerfile.net" target="_blank">accessmaincomputerfile</a>
     <a href="mailto:steven.m.huynh@gmail.com">email me!</a>
   </nav>
+  <script>
+    // skier eases toward the last finger/mouse x; arrow keys nudge the target
+    var skier = document.querySelector('.skier'), x = innerWidth / 2, target = x, dir = 0;
+    function steer(e) { target = e.clientX; }
+    addEventListener('pointerdown', steer);
+    addEventListener('pointermove', steer);
+    addEventListener('keydown', function (e) { if (e.key == 'ArrowLeft') dir = -1; if (e.key == 'ArrowRight') dir = 1; });
+    addEventListener('keyup', function (e) { if (e.key == 'ArrowLeft' || e.key == 'ArrowRight') dir = 0; });
+    (function frame() {
+      target = Math.max(8, Math.min(innerWidth - 8, target + dir * 6));
+      var dx = (target - x) * 0.1;
+      x += dx;
+      skier.style.left = x + 'px';
+      skier.style.transform = 'rotate(' + Math.max(-45, Math.min(45, -dx * 3)) + 'deg)';
+      requestAnimationFrame(frame);
+    })();
+  </script>
 </body>
 
 
